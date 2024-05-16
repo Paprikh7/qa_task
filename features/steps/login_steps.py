@@ -22,7 +22,6 @@ async def open_login_url(context):
 @async_run_until_complete
 async def fill_login_page_field(context, field: str):
     """
-    :param value:
     :param field:
     :type context: behave.runner.Context
     """
@@ -52,13 +51,3 @@ async def is_next_page(context, title: str):
     base_page = BasePage(context.page)
     await base_page.is_title_contains(title)
 
-
-@then('the welcome text on Account page contains the value "{user}"')
-@async_run_until_complete
-async def step_impl(context, user: str):
-    """
-    :param user:
-    :type context: behave.runner.Context
-    """
-    account_page = AccountPage(context.page)
-    assert await account_page.is_welcome_text_contains(user)
