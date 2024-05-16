@@ -1,7 +1,6 @@
 from behave import *
 from behave.api.async_step import async_run_until_complete
 
-from models.account_page import AccountPage
 from models.base_page import BasePage
 from models.login_page import LoginPage
 
