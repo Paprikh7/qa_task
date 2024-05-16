@@ -13,6 +13,9 @@ config.read('config/credential.ini')
 @given('the login page is open')
 @async_run_until_complete
 async def open_login_url(context):
+    """
+    :type context: behave.runner.Context
+    """
     login_page = LoginPage(context.page)
     await login_page.navigate()
 
@@ -24,7 +27,6 @@ async def fill_login_page_field(context, field: str):
     :param field:
     :type context: behave.runner.Context
     """
-
     login_page = LoginPage(context.page)
     await login_page.fill_form_field(field, config.get('Credentials', field))
 

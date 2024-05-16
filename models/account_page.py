@@ -29,3 +29,4 @@ class AccountPage(BasePage):
         await self.profile_open()
         await self.logout_button.click()
         await expect(self.page).to_have_url(re.compile(r"https://www.msn.com/"))
+        await expect(self.profile_button).to_have_count(0)

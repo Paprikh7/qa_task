@@ -74,7 +74,7 @@ class MailPage(BasePage):
 
     async def open_first_mail(self, context):
         account_page = AccountPage(context.page)
-        await expect(account_page.close_notification_button).to_be_visible()
+        await expect(account_page.close_notification_button).to_be_visible(timeout=15000)
         await self.mail.nth(0).click()
 
     async def check_attachment(self):

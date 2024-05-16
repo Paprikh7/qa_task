@@ -51,6 +51,10 @@ async def fill_mail_page(context, field: str, value: str):
 @then('Mail inbox contains new mail with subject text "{value}"')
 @async_run_until_complete
 async def is_email_send(context, value: str):
+    """
+    :type context: behave.runner.Context
+    :param value:
+    """
     mail_page = MailPage(context.page)
     await mail_page.is_mail_delivered(value)
 
@@ -58,6 +62,9 @@ async def is_email_send(context, value: str):
 @then('i open first mail')
 @async_run_until_complete
 async def open_first_mail(context):
+    """
+    :type context: behave.runner.Context
+    """
     mail_page = MailPage(context.page)
     await mail_page.open_first_mail(context)
 
@@ -65,5 +72,8 @@ async def open_first_mail(context):
 @then('i check if attachment is visible in the mail')
 @async_run_until_complete
 async def is_attachment_visible(context):
+    """
+    :type context: behave.runner.Context
+    """
     mail_page = MailPage(context.page)
     await mail_page.check_attachment()
